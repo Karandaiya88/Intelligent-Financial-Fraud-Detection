@@ -1,0 +1,9 @@
+.env
+__pycache__/
+.venv/
+node_modules/
+.next/
+artifacts/
+data/raw/
+*.joblib
+.pytest_cache/
