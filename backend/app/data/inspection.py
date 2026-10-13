@@ -4,6 +4,10 @@ import hashlib
 import pandas as pd
 
 
+def _json_safe(frame: pd.DataFrame) -> pd.DataFrame:
+    return frame.astype(object).where(frame.notna(), None)
+
+
 def inspect(df: pd.DataFrame, target: str = "Class", preview_rows: int = 5) -> dict:
     counts = df[target].value_counts().sort_index()
     n = len(df)
@@ -15,7 +19,7 @@ def inspect(df: pd.DataFrame, target: str = "Class", preview_rows: int = 5) -> d
         "duplicates": int(df.duplicated().sum()),
         "class_balance": {str(k): int(v) for k, v in counts.items()},
         "fraud_rate": float(counts.get(1, 0) / n) if n else 0.0,
-        "preview": df.head(preview_rows).to_dict(orient="records"),
+        "preview": _json_safe(df.head(preview_rows)).to_dict(orient="records"),
     }
 
 

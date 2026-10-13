@@ -7,3 +7,17 @@ artifacts/
 data/raw/
 *.joblib
 .pytest_cache/
+
+# Dataset
+backend/data/raw/creditcard.csv
+
+# Environment
+.env
+backend/.env
+.venv/
+backend/.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/

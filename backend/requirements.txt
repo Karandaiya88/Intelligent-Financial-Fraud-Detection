@@ -1,6 +1,16 @@
+fastapi
+uvicorn[standard]
+python-multipart
 pandas
 numpy
 scikit-learn
 joblib
+sqlalchemy
+psycopg[binary]
+pyjwt
+bcrypt
 openpyxl
+XlsxWriter
+httpx
 pytest
+python-dotenv
